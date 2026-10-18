@@ -351,7 +351,7 @@ button, input, select, textarea {
   left: 0;
   width: 100%;
   z-index: 990;
-  padding: 20px 0;
+  padding: 18px 0;
   transition: padding 0.35s var(--sk-ease),
               background-color 0.35s var(--sk-ease),
               backdrop-filter 0.35s var(--sk-ease),
@@ -371,7 +371,7 @@ button, input, select, textarea {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 24px;
+  gap: clamp(16px, 2vw, 28px);
 }
 
 .brand-logo {
@@ -379,16 +379,17 @@ button, input, select, textarea {
   align-items: center;
   gap: 14px;
   z-index: 1002;
+  flex-shrink: 0;
 }
 
 .brand-logo__img-wrap {
-  background: var(--sk-white);
-  padding: 6px 12px;
-  border-radius: 10px;
+  background: transparent;
+  padding: 0;
+  border-radius: 0;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
+  box-shadow: none;
   transition: transform 0.3s var(--sk-ease);
 }
 
@@ -397,14 +398,16 @@ button, input, select, textarea {
 }
 
 .brand-logo img {
-  height: 38px;
+  height: 40px;
   width: auto;
   object-fit: contain;
+  display: block;
 }
 
 .brand-logo__text {
   display: flex;
   flex-direction: column;
+  justify-content: center;
 }
 
 .brand-logo__title {
@@ -412,25 +415,29 @@ button, input, select, textarea {
   font-weight: 700;
   letter-spacing: 0.04em;
   color: var(--sk-white);
-  line-height: 1.1;
+  line-height: 1.12;
+  white-space: nowrap;
 }
 
 .brand-logo__sub {
   font-size: 0.72rem;
+  font-weight: 500;
   color: var(--sk-sky-200);
   letter-spacing: 0.03em;
-  opacity: 0.85;
+  line-height: 1.25;
+  opacity: 0.88;
+  white-space: nowrap;
 }
 
 /* Center Pill Navigation */
 .top-nav {
   display: flex;
   align-items: center;
-  background: rgba(255, 255, 255, 0.07);
+  background: rgba(10, 32, 92, 0.55);
   border: 1px solid rgba(218, 233, 255, 0.16);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  padding: 6px 10px;
+  padding: 5px 8px;
   border-radius: var(--sk-radius-pill);
 }
 
@@ -441,12 +448,13 @@ button, input, select, textarea {
 }
 
 .top-nav__link {
-  font-size: 0.92rem;
+  font-size: 0.9rem;
   font-weight: 500;
   color: rgba(255, 255, 255, 0.88);
   padding: 8px 16px;
   border-radius: var(--sk-radius-pill);
   position: relative;
+  white-space: nowrap;
   transition: color 0.2s ease, background-color 0.2s ease;
 }
 
@@ -472,21 +480,27 @@ button, input, select, textarea {
 .header-actions {
   display: flex;
   align-items: center;
-  gap: 14px;
+  gap: 12px;
   z-index: 1002;
+  flex-shrink: 0;
 }
 
 .header-contact-pill {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 8px;
+  height: 42px;
   font-size: 0.86rem;
   font-weight: 500;
   color: var(--sk-sky-200);
-  padding: 8px 14px;
+  padding: 0 16px;
   border-radius: var(--sk-radius-pill);
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(218, 233, 255, 0.14);
+  background: rgba(10, 32, 92, 0.5);
+  border: 1px solid rgba(218, 233, 255, 0.16);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  white-space: nowrap;
   transition: all 0.2s ease;
 }
 
@@ -497,24 +511,30 @@ button, input, select, textarea {
 }
 
 .header-cta {
-  padding: 0.68em 1.35em;
+  height: 42px;
+  padding: 0 20px;
   font-size: 0.88rem;
+  font-weight: 600;
+  box-shadow: 0 6px 20px -4px rgba(47, 217, 255, 0.32);
 }
 
-/* Asymmetric 3-line Burger Button (HMH Signature) */
+/* Circular Menu Icon (Far Right) */
 .burger-btn {
-  width: 44px;
-  height: 44px;
+  width: 42px;
+  height: 42px;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(218, 233, 255, 0.2);
+  background: rgba(10, 32, 92, 0.5);
+  border: 1px solid rgba(218, 233, 255, 0.18);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: flex-start;
-  padding: 0 11px;
-  gap: 5px;
+  align-items: center;
+  padding: 0;
+  gap: 4px;
   cursor: pointer;
+  flex-shrink: 0;
   transition: background 0.25s ease, border-color 0.25s ease, transform 0.25s ease;
 }
 
@@ -525,35 +545,31 @@ button, input, select, textarea {
 
 .burger-btn span {
   display: block;
+  width: 18px;
   height: 2px;
   background-color: var(--sk-white);
   border-radius: 2px;
   transition: transform 0.35s var(--sk-ease), width 0.3s var(--sk-ease), opacity 0.25s ease;
 }
 
-.burger-btn span:nth-child(1) { width: 100%; }
-.burger-btn span:nth-child(2) { width: 75%; }
-.burger-btn span:nth-child(3) { width: 50%; }
-
-.burger-btn:hover span:nth-child(2),
-.burger-btn:hover span:nth-child(3) {
-  width: 100%;
-}
+.burger-btn span:nth-child(1) { width: 18px; }
+.burger-btn span:nth-child(2) { width: 18px; }
+.burger-btn span:nth-child(3) { width: 18px; }
 
 body.menu-open .burger-btn {
   background: var(--sk-blue-700);
   border-color: var(--sk-cyan-400);
 }
 body.menu-open .burger-btn span:nth-child(1) {
-  transform: translateY(7px) rotate(45deg);
-  width: 100%;
+  transform: translateY(6px) rotate(45deg);
+  width: 18px;
 }
 body.menu-open .burger-btn span:nth-child(2) {
   opacity: 0;
 }
 body.menu-open .burger-btn span:nth-child(3) {
-  transform: translateY(-7px) rotate(-45deg);
-  width: 100%;
+  transform: translateY(-6px) rotate(-45deg);
+  width: 18px;
 }
 
 /* Fullscreen Overlay Menu (HMH Style) */
@@ -2175,6 +2191,21 @@ body.menu-open .overlay-menu {
    Responsive Design (Desktop, Tablet, Mobile)
    ========================================================================== */
 
+@media (max-width: 1200px) {
+  .top-nav__link {
+    padding: 7px 12px;
+    font-size: 0.85rem;
+  }
+  .header-contact-pill {
+    padding: 0 12px;
+    font-size: 0.82rem;
+  }
+  .header-cta {
+    padding: 0 16px;
+    font-size: 0.84rem;
+  }
+}
+
 @media (max-width: 1080px) {
   .top-nav,
   .header-contact-pill {
@@ -2215,8 +2246,17 @@ body.menu-open .overlay-menu {
   .header-cta {
     display: none;
   }
-  .brand-logo__text {
-    display: none;
+  .brand-logo {
+    gap: 10px;
+  }
+  .brand-logo img {
+    height: 32px;
+  }
+  .brand-logo__title {
+    font-size: 0.92rem;
+  }
+  .brand-logo__sub {
+    font-size: 0.65rem;
   }
   .accordion-content__inner {
     padding-left: 24px;
